@@ -21,9 +21,9 @@ public class App {
         
         
         for (InteirosDinheiro dinheiro : listaInteirosDinheiro) {
-        	double quantidade;
+        	int quantidade;
         	
-        	quantidade = valorTotal/dinheiro.getValor();
+        	quantidade = (int) (valorTotal/dinheiro.getValor());
         	valorTotal %= dinheiro.getValor();	
         	System.out.println((int) quantidade +" "+ dinheiro.getTipo()+ "(s)(s) de R$ "+dinheiro.getNota());
 		}
