@@ -13,30 +13,33 @@ public class App {
         Double valorTotal = nformat.parse(input.nextLine()).doubleValue();
         Double centavos = (valorTotal*100.0)%100;
         
-        ArrayList<InteirosDinheiro> listaInteirosDinheiro = new ArrayList<>();
-        ArrayList<DecimaisDinheiro> listaDecimaisDinheiro = new ArrayList<>();
+        ArrayList<ValoresDinheiro> listaTodosValores = new ArrayList<>();    
         
-
-        Valores.getValoresInteiros().forEach(valor -> listaInteirosDinheiro.add(new InteirosDinheiro(valor, 0, Double.parseDouble(valor), TipoMonetario.MOEDA)));
-        Valores.getValoresDecimais().forEach(valor -> listaDecimaisDinheiro.add(new DecimaisDinheiro(valor, 0, Double.parseDouble(valor), TipoMonetario.MOEDA)));
+        Valores.getTodosValores().forEach(valor -> listaTodosValores.add(new ValoresDinheiro(valor.getValor(),0,Double.parseDouble(valor.getValor()),valor.getTipo())));
+      
+        Boolean inicioTipo = true;
         
+        String tipo = TipoMonetario.MOEDA.name();
         
-        for (InteirosDinheiro dinheiro : listaInteirosDinheiro) {
-        	double quantidade;
-        	 
-        	quantidade = valorTotal/dinheiro.getValor();
-        	valorTotal %= dinheiro.getValor();	
-        	System.out.println((int) quantidade +" "+ dinheiro.getTipo()+ "(s)(s) de R$ "+dinheiro.getNota());
-		}
-        
-        for(DecimaisDinheiro dinheiro : listaDecimaisDinheiro) {
+        for (ValoresDinheiro dinheiro : listaTodosValores) {
         	int quantidade; 
+        	if(inicioTipo && tipo != dinheiro.getTipo()) {
+        		System.out.println(dinheiro.getTipo().toUpperCase()+"S:");
+        		tipo = dinheiro.getTipo();
+        		inicioTipo = true;
+        	}
+        	if(dinheiro.getTipo() == TipoMonetario.NOTA.name()) {
+        		quantidade = (int) (valorTotal/dinheiro.getValor());
+        		valorTotal %= dinheiro.getValor();	
+        	}else {
+        		quantidade = (int) (centavos/(dinheiro.getValor()*100));
+            	centavos%=dinheiro.getValor()*100;
+            	
+        	}
         	
-        	quantidade = (int) (centavos/(dinheiro.getValor()*100));
-        	centavos%=dinheiro.getValor()*100;
         	System.out.println((int) quantidade +" "+ dinheiro.getTipo()+ "(s)  de R$ "+dinheiro.getNota());
-        }
-        
+		}
+    
     }
 
 }
