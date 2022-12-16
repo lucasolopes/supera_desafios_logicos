@@ -22,6 +22,6 @@ public final class Valores {
 	public static List<String> getValoresDecimais() {
 		return listDecimais;
 	}
-
+ 
 	
 }

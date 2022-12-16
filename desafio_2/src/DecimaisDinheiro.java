@@ -5,7 +5,7 @@ public class DecimaisDinheiro extends Dinheiro{
 		this.nota = nota;
 		this.quantidade = quantidade;
 		this.valor = valor;
-		this.tipo = tipo.name();
+		this.tipo = tipo.name(); 
 	}
 
 }

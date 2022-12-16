@@ -11,7 +11,7 @@ public class Dinheiro {
 	}
 
 	public int getQuantidade() {
-		return quantidade;
+		return quantidade; 
 	}
 
 	public Double getValor() {

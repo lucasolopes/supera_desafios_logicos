@@ -7,7 +7,7 @@ public class InteirosDinheiro extends Dinheiro {
 		this.quantidade = quantidade;
 		this.valor = valor;
 		this.tipo = tipo.name();
-	}
+	} 
 
 	
 }
