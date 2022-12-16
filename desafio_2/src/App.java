@@ -15,6 +15,7 @@ public class App {
         
         ArrayList<InteirosDinheiro> listaInteirosDinheiro = new ArrayList<>();
         ArrayList<DecimaisDinheiro> listaDecimaisDinheiro = new ArrayList<>();
+        
 
         Valores.getValoresInteiros().forEach(valor -> listaInteirosDinheiro.add(new InteirosDinheiro(valor, 0, Double.parseDouble(valor), TipoMonetario.MOEDA)));
         Valores.getValoresDecimais().forEach(valor -> listaDecimaisDinheiro.add(new DecimaisDinheiro(valor, 0, Double.parseDouble(valor), TipoMonetario.MOEDA)));
