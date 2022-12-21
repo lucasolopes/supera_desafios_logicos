@@ -4,20 +4,22 @@ public class ValoresDinheiro {
 	int quantidade;
 	Double valor;
 	String tipo;
-	
-	public ValoresDinheiro(String nota, int quantidade, Double valor, String tipo) {
+	String tipoValor;
+
+	public ValoresDinheiro(String nota, int quantidade, Double valor, String tipo, String tipoValor) {
 		this.nota = nota;
 		this.quantidade = quantidade;
 		this.valor = valor;
-		this.tipo = tipo; 
+		this.tipo = tipo;
+		this.tipoValor = tipoValor;
 	}
-	
+
 	public String getNota() {
 		return nota;
 	}
 
 	public int getQuantidade() {
-		return quantidade; 
+		return quantidade;
 	}
 
 	public Double getValor() {
@@ -26,6 +28,10 @@ public class ValoresDinheiro {
 
 	public String getTipo() {
 		return tipo;
+	}
+
+	public String getTipoValor() {
+		return tipoValor;
 	}
 
 }
