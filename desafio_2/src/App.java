@@ -20,16 +20,13 @@ public class App {
 				.add(new ValoresDinheiro(valor.getValor(), 0, Double.parseDouble(valor.getValor()), valor.getTipo(),
 						valor.getTipoValor())));
 
-		Boolean inicioTipo = true;
-
 		String tipo = TipoValorMonetario.DECIMAL.name();
 
 		for (ValoresDinheiro dinheiro : listaTodosValores) {
 			int quantidade;
-			if (inicioTipo && tipo != dinheiro.getTipo()) {
+			if (tipo != dinheiro.getTipo()) {
 				System.out.println(dinheiro.getTipo().toUpperCase() + "S:");
 				tipo = dinheiro.getTipo();
-				inicioTipo = true;
 			}
 			if (dinheiro.getTipoValor() == TipoValorMonetario.INTEIRO.name()) {
 
