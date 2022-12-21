@@ -11,6 +11,7 @@ public class App {
 		Scanner input = new Scanner(System.in);
 
 		Double valorTotal = nformat.parse(input.nextLine()).doubleValue();
+		input.close();
 		Double centavos = (valorTotal * 100.0) % 100;
 
 		ArrayList<ValoresDinheiro> listaTodosValores = new ArrayList<>();
